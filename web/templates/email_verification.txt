@@ -1,0 +1,11 @@
+Subject: Your verification code
+
+Hello,
+
+Use the code below to complete your registration:
+
+{{ code }}
+
+If you did not request this, you can ignore this message.
+
+— Zero-Trust AI Defense

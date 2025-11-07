@@ -1,0 +1,33 @@
+# Honeypot Container - Isolated environment for trapped attackers
+# This container has NO internet access and serves only fake data
+
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    TRAP_MODE=true
+
+WORKDIR /honeypot
+
+# Minimal dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install minimal Python packages
+RUN pip install --no-cache-dir faker fastapi uvicorn
+
+# Copy only deception layer and honeypot server
+COPY deception/ /honeypot/deception/
+COPY deploy/honeypot_server.py /honeypot/server.py
+
+# Create data directory for tracking
+RUN mkdir -p /honeypot/data/tracking
+
+EXPOSE 8080
+
+# Health check (local only - no external connectivity)
+HEALTHCHECK --interval=60s --timeout=5s --start-period=10s --retries=2 \
+    CMD python -c "import socket; socket.create_connection(('127.0.0.1', 8080), timeout=2)" || exit 1
+
+CMD ["python", "server.py"]

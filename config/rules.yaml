@@ -1,0 +1,144 @@
+# Detection Rules for AI/ML Attack Patterns
+
+detection_rules:
+  # Behavioral patterns that indicate bot/AI activity
+  timing_patterns:
+    - name: "consistent_timing"
+      description: "Requests with suspiciously consistent intervals"
+      threshold: 0.95  # Coefficient of variation threshold
+      window_size: 10  # Number of requests to analyze
+      risk_score: 60
+      
+    - name: "burst_activity"
+      description: "Sudden spike in request frequency"
+      threshold: 5.0  # Requests per second
+      window_size: 60  # Seconds
+      risk_score: 70
+
+  behavioral_patterns:
+    - name: "no_human_errors"
+      description: "Perfect request patterns without typical human mistakes"
+      threshold: 0.98  # Accuracy threshold
+      window_size: 20
+      risk_score: 65
+      
+    - name: "systematic_enumeration"
+      description: "Sequential or systematic data access patterns"
+      threshold: 0.85  # Pattern confidence
+      risk_score: 75
+      
+    - name: "token_abuse"
+      description: "API token used from multiple IPs or locations"
+      threshold: 3  # Number of distinct sources
+      window_size: 3600  # Seconds
+      risk_score: 80
+
+  content_patterns:
+    - name: "sql_injection"
+      regex_patterns:
+        - "(?i)(union|select|insert|update|delete|drop|alter).*(?i)(from|where|table)"
+        - "(?i)('\\s*or\\s*'1'\\s*=\\s*'1)"
+        - "(?i)(exec|execute|xp_cmdshell)"
+      risk_score: 90
+      
+    - name: "ml_probing"
+      description: "Queries that suggest ML model training or testing"
+      indicators:
+        - "systematic_feature_extraction"
+        - "adversarial_example_generation"
+        - "gradient_probing"
+      risk_score: 85
+      
+    - name: "data_exfiltration"
+      description: "Large-scale data extraction attempts"
+      indicators:
+        - "bulk_query"
+        - "wide_selection"
+        - "pagination_abuse"
+      threshold: 1000  # Records per request
+      risk_score: 95
+
+  # AI/ML specific attack patterns
+  ml_attack_patterns:
+    - name: "model_inversion"
+      description: "Attempting to reverse-engineer training data"
+      indicators:
+        - "confidence_score_probing"
+        - "boundary_exploration"
+      risk_score: 90
+      
+    - name: "membership_inference"
+      description: "Determining if data was in training set"
+      indicators:
+        - "repeated_similar_queries"
+        - "differential_analysis"
+      risk_score: 85
+      
+    - name: "model_extraction"
+      description: "Attempting to clone the model"
+      indicators:
+        - "systematic_input_output_collection"
+        - "edge_case_exploration"
+      risk_score: 95
+
+# Safety filter rules - patterns that indicate legitimate activity
+safety_filters:
+  whitelist_patterns:
+    - name: "human_errors"
+      description: "Typical human mistakes (typos, retries)"
+      indicators:
+        - "typos_present"
+        - "backtracking"
+        - "hesitation_patterns"
+      
+    - name: "interactive_behavior"
+      description: "Interactive browsing patterns"
+      indicators:
+        - "mouse_movement"
+        - "scroll_events"
+        - "focus_changes"
+        
+    - name: "authenticated_internal"
+      description: "Authenticated internal users with good reputation"
+      conditions:
+        - "valid_session"
+        - "internal_ip"
+        - "reputation_score > 0.8"
+
+  # Multi-stage verification
+  verification_stages:
+    - stage: 1
+      name: "quick_check"
+      checks: ["ip_reputation", "rate_limit"]
+      pass_threshold: 0.3
+      
+    - stage: 2
+      name: "behavioral_analysis"
+      checks: ["timing_patterns", "content_analysis"]
+      pass_threshold: 0.5
+      
+    - stage: 3
+      name: "deep_inspection"
+      checks: ["ml_pattern_detection", "fingerprinting"]
+      pass_threshold: 0.7
+
+# Response policies
+response_policies:
+  risk_thresholds:
+    low: 30      # Monitor only
+    medium: 60   # Deploy honeypots
+    high: 80     # Active defense
+    critical: 95 # Full countermeasures
+    
+  response_strategies:
+    monitor:
+      actions: ["log", "track"]
+      
+    honeypot:
+      actions: ["log", "track", "serve_fake_data"]
+      
+    active_defense:
+      actions: ["log", "track", "serve_fake_data", "deploy_counter_agents", "rate_limit"]
+      
+    full_countermeasures:
+      actions: ["log", "track", "serve_fake_data", "deploy_counter_agents", "aggressive_rate_limit", "set_traps", "reverse_tracking"]

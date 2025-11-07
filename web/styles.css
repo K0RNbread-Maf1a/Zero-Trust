@@ -1,0 +1,40 @@
+/* Basic dark theme styles for the paywalled web interface */
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #22c55e;
+  --accent-2: #06b6d4;
+  --danger: #ef4444;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+.header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.brand { font-weight: 700; font-size: 20px; }
+.badge { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: #1f2937; color: var(--muted); }
+.panel { background: var(--panel); border: 1px solid #1f2937; border-radius: 10px; padding: 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.btn { background: var(--accent); color: #062216; border: 0; padding: 10px 14px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+.btn.secondary { background: var(--accent-2); color: #07262b; }
+.btn.danger { background: var(--danger); color: #2a0f0f; }
+.btn:disabled { opacity: .6; cursor: not-allowed; }
+.input, textarea, select { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #1f2937; background: #0b1220; color: var(--text); }
+label { font-size: 12px; color: var(--muted); display: block; margin-bottom: 6px; }
+hr { border: 0; border-top: 1px solid #1f2937; margin: 16px 0; }
+.code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: #0b1220; padding: 8px; border-radius: 8px; overflow: auto; border: 1px solid #1f2937; }
+.tabs { display: flex; gap: 8px; margin-bottom: 12px; }
+.tab { padding: 8px 12px; border-radius: 8px; border: 1px solid #1f2937; background: #0b1220; cursor: pointer; color: var(--muted); }
+.tab.active { background: #12223a; color: var(--text); border-color: #1e3a8a; }
+.hidden { display: none; }
+.alert { padding: 10px 12px; border-radius: 8px; border: 1px solid #1f2937; background: #0b1220; color: var(--muted); }
+.alert.success { border-color: #064e3b; color: #a7f3d0; }
+.alert.error { border-color: #7f1d1d; color: #fecaca; }
+.footer { margin-top: 20px; font-size: 12px; color: var(--muted); text-align: center; }

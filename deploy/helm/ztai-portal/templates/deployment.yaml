@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ztai-portal
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: ztai-portal
+  template:
+    metadata:
+      labels:
+        app: ztai-portal
+    spec:
+      containers:
+        - name: app
+          image: {{ .Values.image }}
+          ports:
+            - containerPort: 8000
+          env:
+            - name: REDIS_URL
+              value: {{ .Values.redis.url | quote }}
+            - name: STRIPE_MODE
+              value: {{ .Values.env.STRIPE_MODE | quote }}
+            - name: ENABLE_DEV_PAY
+              value: {{ .Values.env.ENABLE_DEV_PAY | quote }}
+            - name: RETURN_VERIFICATION_CODE
+              value: {{ .Values.env.RETURN_VERIFICATION_CODE | quote }}
+            - name: FORCE_2FA
+              value: {{ .Values.env.FORCE_2FA | quote }}
+            - name: STRIPE_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ztai-portal-stripe
+                  key: STRIPE_SECRET_KEY
+            - name: STRIPE_PRICE_ID
+              valueFrom:
+                secretKeyRef:
+                  name: ztai-portal-stripe
+                  key: STRIPE_PRICE_ID
+            - name: STRIPE_WEBHOOK_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: ztai-portal-stripe
+                  key: STRIPE_WEBHOOK_SECRET

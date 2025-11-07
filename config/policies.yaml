@@ -1,0 +1,205 @@
+# Scenario-based policies for dynamic environment creation
+
+scenarios:
+  sql_injection:
+    description: "SQL injection attack detected"
+    environment_requirements:
+      - sqlalchemy
+      - psycopg2-binary
+      - faker
+    cake_template: "sql_honeypot.cake"
+    counter_strategy: "database_poisoning"
+    isolation_level: "high"
+    
+  api_scraping:
+    description: "API scraping or excessive requests"
+    environment_requirements:
+      - aiohttp
+      - asyncio
+      - requests
+    cake_template: "flood_agent.cake"
+    counter_strategy: "request_flooding"
+    isolation_level: "medium"
+    
+  credential_stuffing:
+    description: "Credential stuffing or brute force"
+    environment_requirements:
+      - bcrypt
+      - faker
+      - redis
+    cake_template: "auth_trap.cake"
+    counter_strategy: "fake_authentication"
+    isolation_level: "high"
+    
+  data_exfiltration:
+    description: "Large-scale data extraction"
+    environment_requirements:
+      - pandas
+      - numpy
+      - faker
+      - cryptography
+    cake_template: "poison_data.cake"
+    counter_strategy: "adversarial_data_injection"
+    isolation_level: "critical"
+    
+  model_extraction:
+    description: "ML model extraction attempt"
+    environment_requirements:
+      - scikit-learn
+      - numpy
+      - scipy
+    cake_template: "model_defense.cake"
+    counter_strategy: "model_poisoning"
+    isolation_level: "critical"
+    
+  reconnaissance:
+    description: "Network or system reconnaissance"
+    environment_requirements:
+      - faker
+      - requests
+    cake_template: "recon_trap.cake"
+    counter_strategy: "false_topology"
+    isolation_level: "medium"
+    
+  directory_traversal:
+    description: "Directory traversal or path manipulation"
+    environment_requirements:
+      - faker
+      - pathlib
+    cake_template: "filesystem_trap.cake"
+    counter_strategy: "fake_filesystem"
+    isolation_level: "high"
+
+# Counter strategies configuration
+counter_strategies:
+  database_poisoning:
+    tactics:
+      - "inject_fake_records"
+      - "add_tracking_tokens"
+      - "create_honeypot_tables"
+    intensity_levels:
+      low: 10
+      medium: 50
+      high: 200
+      
+  request_flooding:
+    tactics:
+      - "spawn_counter_agents"
+      - "flood_with_queries"
+      - "exhaust_rate_limits"
+    intensity_levels:
+      low: 5
+      medium: 25
+      high: 100
+      
+  fake_authentication:
+    tactics:
+      - "generate_fake_credentials"
+      - "create_honeypot_accounts"
+      - "track_credential_usage"
+    intensity_levels:
+      low: 5
+      medium: 20
+      high: 50
+      
+  adversarial_data_injection:
+    tactics:
+      - "generate_adversarial_examples"
+      - "inject_contradictions"
+      - "add_backdoor_patterns"
+    intensity_levels:
+      low: 0.1  # 10% poisoned
+      medium: 0.25  # 25% poisoned
+      high: 0.5  # 50% poisoned
+      
+  model_poisoning:
+    tactics:
+      - "return_adversarial_predictions"
+      - "inject_backdoor_triggers"
+      - "modify_confidence_scores"
+    intensity_levels:
+      low: 0.05
+      medium: 0.15
+      high: 0.3
+      
+  false_topology:
+    tactics:
+      - "fake_network_map"
+      - "honeypot_services"
+      - "false_vulnerabilities"
+    intensity_levels:
+      low: 3
+      medium: 10
+      high: 25
+      
+  fake_filesystem:
+    tactics:
+      - "generate_fake_directories"
+      - "create_honeypot_files"
+      - "track_access_patterns"
+    intensity_levels:
+      low: 5
+      medium: 20
+      high: 100
+
+# Environment isolation configurations
+isolation_levels:
+  low:
+    network_isolation: false
+    filesystem_isolation: true
+    resource_limits:
+      cpu: "50%"
+      memory: "512MB"
+      timeout: 30
+      
+  medium:
+    network_isolation: true
+    filesystem_isolation: true
+    resource_limits:
+      cpu: "25%"
+      memory: "256MB"
+      timeout: 20
+      
+  high:
+    network_isolation: true
+    filesystem_isolation: true
+    resource_limits:
+      cpu: "10%"
+      memory: "128MB"
+      timeout: 10
+      
+  critical:
+    network_isolation: true
+    filesystem_isolation: true
+    resource_limits:
+      cpu: "5%"
+      memory: "64MB"
+      timeout: 5
+
+# Poetry environment templates
+poetry_templates:
+  base:
+    python_version: "^3.10"
+    base_dependencies:
+      - pyyaml
+      - python-dotenv
+      - requests
+      
+  database:
+    additional_dependencies:
+      - sqlalchemy
+      - psycopg2-binary
+      - alembic
+      
+  ml_defense:
+    additional_dependencies:
+      - scikit-learn
+      - numpy
+      - scipy
+      - pandas
+      
+  network:
+    additional_dependencies:
+      - aiohttp
+      - asyncio
+      - websockets

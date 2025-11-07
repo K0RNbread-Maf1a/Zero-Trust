@@ -1,0 +1,55 @@
+'"th\" Zero-Trust AI Defense Portal
+.SH NAME
+ztai-portal \- run and operate the zero-trust paywalled web portal
+.SH SYNOPSIS
+.B ztai-portal
+.RI [ options ]
+.SH DESCRIPTION
+The Zero-Trust AI Defense Portal serves a web UI at /app with a paywall. It supports Stripe Checkout, registration with verification, and Redis-backed sessions.
+.SH CONFIGURATION
+.TP
+.B STRIPE_SECRET_KEY
+Stripe secret API key.
+.TP
+.B STRIPE_PRICE_ID
+Stripe price ID for the product/plan.
+.TP
+.B STRIPE_WEBHOOK_SECRET
+Stripe webhook signing secret.
+.TP
+.B STRIPE_MODE
+"payment" (default) or "subscription".
+.TP
+.B ENABLE_DEV_PAY
+Enable dev simulate payment (1/0). Default 1.
+.TP
+.B RETURN_VERIFICATION_CODE
+Return verification code from /register/start in dev (1/0). Default 1.
+.TP
+.B REDIS_URL
+Redis connection URL for sessions and registration.
+.TP
+.B SESSION_TTL
+Session TTL in seconds. Default 604800.
+.SH FILES
+.I web/index.html
+.RS
+Portal UI.
+.RE
+.I server/protected_server.py
+.RS
+FastAPI app with endpoints.
+.RE
+.I server/paywall.py
+.RS
+Session and paywall manager.
+.RE
+.I server/registration.py
+.RS
+Registration and verification manager.
+.RE
+.SH SEE ALSO
+.BR stripe (1)
+.BR redis-server (1)
+.SH AUTHOR
+Security Team

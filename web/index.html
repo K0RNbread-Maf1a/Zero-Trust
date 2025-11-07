@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zero-Trust AI Defense — Portal</title>
+  <link rel="stylesheet" href="/web/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">🛡️ Zero-Trust AI Defense</div>
+      <div id="pay-status" class="badge">Checking payment...</div>
+    </div>
+
+    <div id="paywall" class="panel">
+      <h2>Access Portal</h2>
+      <p>This portal provides access to virtual user services. A subscription is required.</p>
+
+      <div class="grid">
+        <div class="panel">
+          <h3>Registration</h3>
+          <div class="tabs">
+            <div class="tab active" data-tab="reg-start">Register</div>
+            <div class="tab" data-tab="reg-verify">Verify</div>
+            <div class="tab" data-tab="reg-login">Login</div>
+          </div>
+
+          <div id="tab-reg-start">
+            <div class="grid">
+              <div>
+                <label>Email</label>
+                <input id="reg-email" class="input" type="email" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label>Password</label>
+                <input id="reg-password" class="input" type="password" />
+              </div>
+            </div>
+            <div style="margin-top:8px;">
+              <button id="btn-reg-start" class="btn">Start Registration</button>
+            </div>
+            <div id="reg-start-msg" class="alert" style="margin-top:8px;"></div>
+          </div>
+
+          <div id="tab-reg-verify" class="hidden">
+            <div class="grid">
+              <div>
+                <label>Email</label>
+                <input id="ver-email" class="input" type="email" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label>Verification Code</label>
+                <input id="ver-code" class="input" placeholder="6-digit code" />
+              </div>
+            </div>
+            <div style="margin-top:8px;">
+              <button id="btn-reg-verify" class="btn">Verify</button>
+            </div>
+            <div id="reg-verify-msg" class="alert" style="margin-top:8px;"></div>
+          </div>
+
+          <div id="tab-reg-login" class="hidden">
+            <div class="grid">
+              <div>
+                <label>Email</label>
+                <input id="login-email" class="input" type="email" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label>Password</label>
+                <input id="login-password" class="input" type="password" />
+              </div>
+            </div>
+            <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
+              <button id="btn-login-password" class="btn">Continue</button>
+              <button id="btn-reg-login" class="btn secondary">Legacy Login (no 2FA)</button>
+            </div>
+            <div id="reg-login-msg" class="alert" style="margin-top:8px;"></div>
+
+            <div id="twofa-step" class="hidden" style="margin-top:12px;">
+              <h4>Two-Factor Authentication</h4>
+              <div class="grid">
+                <div>
+                  <label>Authenticator code</label>
+                  <input id="twofa-code" class="input" placeholder="123456" />
+                </div>
+                <div style="display:flex;align-items:flex-end;gap:8px;">
+                  <button id="btn-twofa-verify" class="btn">Verify</button>
+                </div>
+              </div>
+              <div id="twofa-msg" class="alert" style="margin-top:8px;"></div>
+            </div>
+
+            <div id="twofa-enroll" class="hidden" style="margin-top:12px;">
+              <h4>Enroll 2FA</h4>
+              <div class="grid">
+                <div>
+                  <label>Secret</label>
+                  <input id="twofa-secret" class="input" readonly />
+                </div>
+                <div>
+                  <label>Scan QR in your Authenticator app</label>
+                  <img id="twofa-qr" alt="QR Code" style="max-height:140px; border:1px solid #1f2937; border-radius:8px;" />
+                </div>
+              </div>
+              <div style="margin-top:8px;" class="grid">
+                <div>
+                  <label>Enter code to confirm</label>
+                  <input id="twofa-enroll-code" class="input" placeholder="123456" />
+                </div>
+                <div style="display:flex;align-items:flex-end;gap:8px;">
+                  <button id="btn-twofa-enroll-verify" class="btn">Enable 2FA</button>
+                </div>
+              </div>
+              <div id="twofa-enroll-msg" class="alert" style="margin-top:8px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Subscription</h3>
+          <div id="stripe-section">
+            <div class="alert">Subscribe securely via Stripe Checkout.</div>
+            <button id="btn-subscribe-stripe" class="btn">Subscribe</button>
+          </div>
+          <div id="devpay-section" style="margin-top:12px;">
+            <div class="alert">Development mode: simulate payment without Stripe.</div>
+            <button id="btn-subscribe" class="btn secondary">Dev: Simulate Payment</button>
+          </div>
+          <div class="alert" style="margin-top:12px;">
+            Status: <span id="status-widget">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="app" class="hidden">
+      <div class="tabs">
+        <div class="tab active" data-tab="files">Files</div>
+        <div class="tab" data-tab="database">Database</div>
+        <div class="tab" data-tab="keys">API Keys</div>
+      </div>
+
+      <div id="tab-files" class="panel">
+        <h3>Virtual Filesystem</h3>
+        <div class="grid">
+          <div>
+            <label>Path</label>
+            <input id="fs-path" class="input" value="/" />
+          </div>
+          <div style="display:flex;align-items:flex-end;gap:8px;">
+            <button id="btn-list" class="btn">List</button>
+          </div>
+        </div>
+        <pre id="fs-list" class="code" style="max-height:240px"></pre>
+
+        <hr />
+        <div class="grid">
+          <div>
+            <label>Read file path</label>
+            <input id="fs-read-path" class="input" placeholder="/etc/config.json" />
+          </div>
+          <div style="display:flex;align-items:flex-end;gap:8px;">
+            <button id="btn-read" class="btn secondary">Read</button>
+          </div>
+        </div>
+        <pre id="fs-content" class="code" style="max-height:240px"></pre>
+      </div>
+
+      <div id="tab-database" class="panel hidden">
+        <h3>Virtual Database</h3>
+        <label>Query</label>
+        <textarea id="db-query" rows="4" class="input">SELECT * FROM users</textarea>
+        <div style="margin-top:8px;">
+          <button id="btn-query" class="btn">Run Query</button>
+        </div>
+        <pre id="db-result" class="code" style="max-height:320px"></pre>
+      </div>
+
+      <div id="tab-keys" class="panel hidden">
+        <h3>API Keys</h3>
+        <div class="grid">
+          <div>
+            <label>Name</label>
+            <input id="key-name" class="input" placeholder="My Integration" />
+          </div>
+          <div>
+            <label>Permissions (comma-separated)</label>
+            <input id="key-perms" class="input" value="read,write" />
+          </div>
+          <div style="display:flex;align-items:flex-end;gap:8px;">
+            <button id="btn-gen" class="btn">Generate</button>
+          </div>
+        </div>
+        <pre id="key-result" class="code" style="max-height:240px"></pre>
+      </div>
+
+      <div class="footer">Only web access is supported. Direct API calls require a paid session cookie.</div>
+    </div>
+  </div>
+
+  <script src="/web/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+image: ztai-portal:latest
+replicaCount: 1
+service:
+  type: ClusterIP
+  port: 8000
+env:
+  STRIPE_MODE: payment
+  ENABLE_DEV_PAY: "0"
+  RETURN_VERIFICATION_CODE: "0"
+  FORCE_2FA: "1"
+stripe:
+  secretKey: ""
+  priceId: ""
+  webhookSecret: ""
+redis:
+  enabled: true
+  url: redis://ztai-redis:6379/0
