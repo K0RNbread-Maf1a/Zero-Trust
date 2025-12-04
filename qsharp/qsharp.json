@@ -1,0 +1,11 @@
+{
+  "name": "QuantumDefense",
+  "outputPath": "./bin",
+  "minimumQSharpVersion": "0.27.0",
+  "author": "Zero-Trust AI Defense",
+  "license": "MIT",
+  "documentation": "Quantum-enhanced defense mechanisms for detecting and countering quantum computing attacks",
+  "dependencies": {
+    "Microsoft.Quantum.Sdk": "0.27.0"
+  }
+}

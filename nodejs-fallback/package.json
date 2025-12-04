@@ -20,13 +20,19 @@
   "author": "Zero-Trust AI Defense Team",
   "license": "MIT",
   "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.1.58",
+    "@azure/quantum-jobs": "^1.0.0-beta.1",
     "@faker-js/faker": "^8.4.0",
+    "claude-code": "^1.0.0",
+    "claude-code-templates": "^1.28.3",
+    "dockerode": "^4.0.2",
     "express": "^4.18.2",
     "fastify": "^4.26.0",
-    "yaml": "^2.3.4",
+    "prom-client": "^15.1.0",
+    "q-sharp-ts": "^0.1.6",
+    "qsharp-lang": "^1.22.4-dev",
     "redis": "^4.6.13",
-    "dockerode": "^4.0.2",
-    "prom-client": "^15.1.0"
+    "yaml": "^2.3.4"
   },
   "devDependencies": {
     "@types/node": "^20.11.0"
