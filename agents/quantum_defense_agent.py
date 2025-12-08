@@ -2,7 +2,10 @@
 Quantum Defense Agent - AI Agent specialized in quantum computing security
 Extends the Defense Agent with quantum-specific capabilities
 """
-import anthropic
+try:
+    import anthropic
+except Exception:  # pragma: no cover - optional dependency
+    anthropic = None
 import json
 import sys
 from pathlib import Path

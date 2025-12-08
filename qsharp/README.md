@@ -1,6 +1,6 @@
 # Q# Quantum Defense Guide
 
-**Comprehensive guide to quantum computing security with Zero-Trust AI Defense**
+## Comprehensive guide to quantum computing security with Zero-Trust AI Defense
 
 ## Overview
 

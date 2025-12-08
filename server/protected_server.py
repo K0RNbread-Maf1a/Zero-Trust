@@ -285,27 +285,8 @@ async def stripe_success():
 
 @app.get("/pay/stripe/cancel", response_class=HTMLResponse)
 async def stripe_cancel():
-    html = (Path(__file__).parent.parent / "web" / "checkout_cancel.html").read_text(encoding="utf-8")
-    return HTMLResponse(content=html)
-    <html>
-      <head>
-        <meta charset=\"utf-8\" />
-        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
-        <title>Payment Successful</title>
-        <link rel=\"stylesheet\" href=\"/web/styles.css\" />
-      </head>
-      <body>
-        <div class=\"container\"> 
-          <div class=\"panel\">
-            <h2>✅ Payment succeeded</h2>
-            <p>Your session will unlock automatically once the payment is confirmed.</p>
-            <p><a class=\"btn\" href=\"/app\">Return to Portal</a></p>
-          </div>
-        </div>
-      </body>
-    </html>
-    """
-    return HTMLResponse(content=html)
+        html = (Path(__file__).parent.parent / "web" / "checkout_cancel.html").read_text(encoding="utf-8")
+        return HTMLResponse(content=html)
 
 
 # ==================== Authentication (2FA) & Registration ====================

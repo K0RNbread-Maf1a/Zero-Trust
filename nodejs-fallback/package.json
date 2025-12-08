@@ -6,10 +6,14 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "server": "node server.js",
+    "server": "node lib/server.js",
     "detector": "node lib/detector.js",
     "honeypot": "node lib/honeypot-server.js",
-    "test": "node --test"
+    "fallback": "node fallback-main.js",
+    "fallback:test": "node lib/integration-tests.js",
+    "test": "node --test",
+    "test:integration": "node lib/integration-tests.js",
+    "watch": "node --watch fallback-main.js"
   },
   "keywords": [
     "security",

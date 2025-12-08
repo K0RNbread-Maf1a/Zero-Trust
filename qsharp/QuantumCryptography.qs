@@ -8,9 +8,9 @@ namespace QuantumCryptography {
     /// Generates quantum bits for secure key exchange
     operation QuantumKeyDistribution(numQubits : Int) : (Result[], Result[]) {
         use qubits = Qubit[numQubits];
-        mutable bases = new Bool[numQubits];
-        mutable measurements = new Result[numQubits];
-        mutable quantumBits = new Result[numQubits];
+        mutable bases = [];
+        mutable measurements = [];
+        mutable quantumBits = [];
 
         // Randomly choose bases for each qubit
         for i in 0..numQubits - 1 {
@@ -76,6 +76,14 @@ namespace QuantumCryptography {
         }
 
         return hash;
+    }
+
+    operation GenerateQuantumSignatureWithDefaults() : (Result[], Bool[]) {
+        // TODO: Fill out the values for the parameters
+        let message = [];
+
+        // Call original operation
+        return GenerateQuantumSignature(message);
     }
 
     /// Quantum Digital Signature generation

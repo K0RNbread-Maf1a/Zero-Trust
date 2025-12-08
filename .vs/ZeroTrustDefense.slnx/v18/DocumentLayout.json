@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\redgh\\zero-trust-ai-defense\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|c:\\users\\redgh\\zero-trust-ai-defense\\qsharp\\quantumdefense.qs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|solutionrelative:qsharp\\quantumdefense.qs||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|c:\\users\\redgh\\zero-trust-ai-defense\\qsharp_integration.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|MarkdownPreview",
       "RelativeMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|solutionrelative:qsharp_integration.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|MarkdownPreview"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|c:\\users\\redgh\\zero-trust-ai-defense\\qsharp_integration.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|solutionrelative:qsharp_integration.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|c:\\users\\redgh\\zero-trust-ai-defense\\qsharp_agents_creation.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|solutionrelative:qsharp_agents_creation.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|c:\\users\\redgh\\zero-trust-ai-defense\\qsharp\\qsharp.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|solutionrelative:qsharp\\qsharp.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|c:\\users\\redgh\\zero-trust-ai-defense\\qsharp\\quantumcryptography.qs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|solutionrelative:qsharp\\quantumcryptography.qs||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|c:\\users\\redgh\\zero-trust-ai-defense\\qsharp_integration.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|solutionrelative:qsharp_integration.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92EE6C6F-9AAE-E232-1D89-E7014946E883}|ZeroTrustDefense.csproj|c:\\users\\redgh\\zero-trust-ai-defense\\attacker_identification.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
@@ -29,11 +41,54 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "qsharp.json",
+              "DocumentMoniker": "C:\\Users\\redgh\\zero-trust-ai-defense\\qsharp\\qsharp.json",
+              "RelativeDocumentMoniker": "qsharp\\qsharp.json",
+              "ToolTip": "C:\\Users\\redgh\\zero-trust-ai-defense\\qsharp\\qsharp.json",
+              "RelativeToolTip": "qsharp\\qsharp.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-08T17:08:43.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "QuantumDefense.qs",
+              "DocumentMoniker": "C:\\Users\\redgh\\zero-trust-ai-defense\\qsharp\\QuantumDefense.qs",
+              "RelativeDocumentMoniker": "qsharp\\QuantumDefense.qs",
+              "ToolTip": "C:\\Users\\redgh\\zero-trust-ai-defense\\qsharp\\QuantumDefense.qs",
+              "RelativeToolTip": "qsharp\\QuantumDefense.qs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-08T17:08:25.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "QuantumCryptography.qs",
+              "DocumentMoniker": "C:\\Users\\redgh\\zero-trust-ai-defense\\qsharp\\QuantumCryptography.qs",
+              "RelativeDocumentMoniker": "qsharp\\QuantumCryptography.qs",
+              "ToolTip": "C:\\Users\\redgh\\zero-trust-ai-defense\\qsharp\\QuantumCryptography.qs",
+              "RelativeToolTip": "qsharp\\QuantumCryptography.qs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-08T17:08:22.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "QSHARP_INTEGRATION.md [Preview]",
               "DocumentMoniker": "C:\\Users\\redgh\\zero-trust-ai-defense\\QSHARP_INTEGRATION.md",
               "RelativeDocumentMoniker": "QSHARP_INTEGRATION.md",
@@ -53,11 +108,12 @@
               "RelativeToolTip": "QSHARP_AGENTS_CREATION.md",
               "ViewState": "AgIAAO4BAAAAAAAAAAAAAO4BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-12-07T04:06:46.55Z"
+              "WhenOpened": "2025-12-07T04:06:46.55Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "ATTACKER_IDENTIFICATION.md",
               "DocumentMoniker": "C:\\Users\\redgh\\zero-trust-ai-defense\\ATTACKER_IDENTIFICATION.md",
               "RelativeDocumentMoniker": "ATTACKER_IDENTIFICATION.md",
@@ -69,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "newFile.js",
               "DocumentMoniker": "C:\\Users\\redgh\\AppData\\Local\\Temp\\newFile.js",
               "RelativeDocumentMoniker": "..\\AppData\\Local\\Temp\\newFile.js",
@@ -81,7 +137,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "QSHARP_INTEGRATION.md",
               "DocumentMoniker": "C:\\Users\\redgh\\zero-trust-ai-defense\\QSHARP_INTEGRATION.md",
               "RelativeDocumentMoniker": "QSHARP_INTEGRATION.md",
@@ -89,8 +145,7 @@
               "RelativeToolTip": "QSHARP_INTEGRATION.md",
               "ViewState": "AgIAAIQAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-12-04T10:22:30.648Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T10:22:30.648Z"
             }
           ]
         }

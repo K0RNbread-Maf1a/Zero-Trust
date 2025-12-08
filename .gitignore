@@ -68,6 +68,9 @@ package-lock.json
 *.sublime-*
 .DS_Store
 
+# Visual Studio workspace files (ignore to avoid permission/indexing issues)
+.vs/
+
 # Logs and databases
 *.log
 *.sqlite
